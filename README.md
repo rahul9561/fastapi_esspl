@@ -1,1 +1,3 @@
-this is fastapi repo
+# this is fastapi repo
+
+# pip install -r requirements.txt
