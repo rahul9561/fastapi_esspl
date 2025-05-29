@@ -17,6 +17,10 @@
             <form action="{{ url_for('delete_product', product_id=product[0]) }}" method="post">
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>
+             <form action="{{ url_for('add_cart') }}" method="post">
+                <input type="text" hidden name="product_id" value="{{product[0]}}">
+                <button type="submit" class="btn btn-success">Add To Cart</button>
+             </form>
         </div>
         {% endfor %}
           

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5">
+    <div class="row g-4">
+        {% if products %}
+            {% for product in products %}
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="{{ product[5] }}" class="card-img-top" alt="Product Image" style="height: 240px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product[1] }}</h5>
+                            <p class="card-text text-muted">{{ product[3] }}</p>
+                           
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-white border-0">
+                            <form action="{{ url_for('delete_product', product_id=product[0]) }}" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                            </form>
+                            <form action="{{ url_for('add_cart') }}" method="post" class="d-inline">
+                                <input type="hidden" name="product_id" value="{{ product[0] }}">
+                                <button type="submit" class="btn btn-sm btn-success">Add To Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12 text-center">
+                <p class="text-muted">No products found.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+  
+{% endblock  %}

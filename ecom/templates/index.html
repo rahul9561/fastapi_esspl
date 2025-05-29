@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        {% if products %}
+          {% for item in products %}
+            <div class="col-md-3 ">
+            <div class="card p-2">
+                <img src="{{item[4]}}" alt="">
+                <h3>{{item[1]}}</h3>
+                <h4>{{item[2]}}</h4>
+                <p>{{item[3]}}</p>
+            </div>
+        </div>      
+          {% endfor %}
+        {% endif %}
+        
+    </div>
+</div>
+
+
+{% endblock %}

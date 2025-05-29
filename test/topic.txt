@@ -1,0 +1,67 @@
+✅ Depends Keyword in FastAPI
+Depends is a dependency injection system in FastAPI. It allows you to reuse common logic, such as authentication, database sessions, pagination, and more.
+
+🧠 Why Use Depends?
+It helps:
+
+Keep your code modular and DRY (Don’t Repeat Yourself)
+
+Inject reusable logic into routes (e.g., current user, db session)
+
+example :
+
+from fastapi import FastAPI, Depends
+
+app = FastAPI()
+
+# Dependency function
+def common_parameters(skip: int = 0, limit: int = 10):
+    return {"skip": skip, "limit": limit}
+
+# Inject dependency
+@app.get("/items/")
+def read_items(params: dict = Depends(common_parameters)):
+    return {"pagination": params}
+
+/items/?skip=5&limit=20
+
+
+
+✅ HTTPException in FastAPI
+HTTPException is used in FastAPI to raise custom error responses with a status code, message, and optional headers.
+from fastapi import FastAPI, HTTPException
+
+from fastapi import FastAPI, HTTPException
+
+app = FastAPI()
+
+@app.get("/item/{item_id}")
+def read_item(item_id: int):
+    if item_id > 100:
+        raise HTTPException(status_code=404, detail="Item not found")
+    return {"item_id": item_id}
+
+
+
+
+
+
+
+
+
+# topics
+
+
+Login/Logout endpoints
+
+Role-based access control
+
+🔹 3. Background Tasks
+Email sending, processing jobs
+
+BackgroundTasks utility
+
+🔹 4. File Uploads
+UploadFile and File
+
+Handle multiple files

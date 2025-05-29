@@ -1,5 +1,44 @@
-<form action="{{ url_for('login_post') }}" method="post">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">login</button>
-</form>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+  <div class="card p-4 shadow" style="max-width: 400px; width: 100%;">
+    <h3 class="mb-4 text-center">Login</h3>
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+    {% endif %}
+
+    <form action="{{ url_for('login_post') }}" method="post" novalidate>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="username" 
+          name="username" 
+          placeholder="Enter username" 
+          required 
+          autofocus
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input 
+          type="password" 
+          class="form-control" 
+          id="password" 
+          name="password" 
+          placeholder="Enter password" 
+          required
+        >
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+
+  </div>
+</div>
+{% endblock %}

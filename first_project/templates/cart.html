@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4">Your Shopping Cart</h2>
+
+    {% if cart %}
+    <div class="row">
+        {% for item in cart %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="{{ item[5] }}" class="card-img-top" alt="{{ item[1] }}" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item[1] }}</h5>
+                    <p class="card-text">{{ item[2] }}</p>
+                    <p class="card-text fw-bold text-success">${{ '%.2f'|format(item[3]) }}</p>
+                    <p class="card-text">Quantity: {{ item[7] }}</p>
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-end">
+        <a href="" class="btn btn-success btn-lg mt-4">Proceed to Checkout</a>
+    </div>
+
+    {% else %}
+    <div class="alert alert-info text-center" role="alert">
+        Your cart is empty.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
