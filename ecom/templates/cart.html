@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+    <div class="row">
+        {% if carts %}
+            {% for cart in carts %}
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100">
+                        <img src="{{ cart[3] }}" class="card-img-top" alt="{{ cart[2] }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ cart[2] }}</h5>
+                            <p class="card-text">Quantity: {{ cart[1] }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <p>No items in your cart.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

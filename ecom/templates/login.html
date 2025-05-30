@@ -3,11 +3,10 @@
 
 <div class="container">
     <div style="width: 400px;height: 400px; margin: 2rem auto;">
-        <form action="{{ url_for('create_user')}}" method="post">
+        <form action="{{ url_for('login_user')}}" method="post">
             <input type="text" name="username"  id="" class="form-control mb-2" placeholder="Username">
-            <input type="email" name="email" id="" placeholder="email" class="form-control mb-2">
             <input type="password" name="password" id="" placeholder="password" class="form-control mb-2">
-            <button type="submit" class="btn btn-success">Signup</button>
+            <button type="submit" class="btn btn-success">Login</button>
         </form>
     </div>
 </div>

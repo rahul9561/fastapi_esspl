@@ -8,9 +8,17 @@
             <div class="col-md-3 ">
             <div class="card p-2">
                 <img src="{{item[4]}}" alt="">
-                <h3>{{item[1]}}</h3>
-                <h4>{{item[2]}}</h4>
-                <p>{{item[3]}}</p>
+                <div class="card-title">
+                    <span class="badge bg-success">{{item[0]}}</span>
+
+                    <h3>{{item[1]}}</h3>
+                    <h4>{{item[2]}}</h4>
+                    <p>{{item[3]}}</p>
+                </div>
+                <form action="/add/card" method="post">
+                    <input type="text" name="product_id" id="" value="{{item[0]}}">
+                    <button type="submit">add to cart</button>
+                </form>
             </div>
         </div>      
           {% endfor %}
