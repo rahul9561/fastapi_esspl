@@ -1,0 +1,20 @@
+1. Install requirements
+pip install fastapi[all] python-jose passlib[bcrypt]
+2.need to import on top 
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from jose import JWTError, jwt
+
+
+
+
+What is OAuth2PasswordRequestForm?
+It is a built-in class from fastapi.security that expects data submitted using the 
+application/x-www-form-urlencoded format (like regular HTML forms or Postman form fields).
+
+It expects two form fields:
+
+username
+
+password
+
+These are automatically extracted and validated when a user submits the login form.
