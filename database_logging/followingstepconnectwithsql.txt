@@ -1,0 +1,25 @@
+pip install fastapi uvicorn sqlalchemy pyodbc
+
+
+# database.py
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, declarative_base
+
+DATABASE_URL = "mssql+pyodbc://username:password@servername/databasename?driver=ODBC+Driver+17+for+SQL+Server"
+
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+Base = declarative_base()
+
+
+# models.py
+from sqlalchemy import Column, Integer, String
+from database import Base
+
+class User(Base):
+    __tablename__ = "users"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String)
+    email = Column(String, unique=True, index=True)
