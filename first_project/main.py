@@ -284,8 +284,8 @@ async def contact_page(request: Request):
 
 
 # Your email credentials (use environment variables or a secrets manager in production)
-SENDER_EMAIL = "rahul28june2024@gmail.com"
-SENDER_PASSWORD = "xnjkkmlnjcfaagcq"  # Use an App Password if using Gmail
+SENDER_EMAIL = "example@gmail.com"
+SENDER_PASSWORD = "app password"  # Use an App Password if using Gmail
 
 
 @app.post("/email/sender")
